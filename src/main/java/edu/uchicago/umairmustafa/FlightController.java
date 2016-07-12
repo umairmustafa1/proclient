@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.apache.commons.lang.StringUtils;
 
-public class HelloController
+public class FlightController
 {
 
 

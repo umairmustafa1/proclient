@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.uchicago.umairmustafa.FlightController">
+    <stylesheets>
+        <URL value="@/styles/styles.css" />
+    </stylesheets>
+    <children>
+        <TextField fx:id="txtSource" layoutX="64.0" layoutY="77.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. Washington" />
+        <TextField fx:id="txtDestination" layoutX="240.0" layoutY="77.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. Chicago" />
+        <Label layoutX="64.0" layoutY="48.0" text="From" />
+        <Label layoutX="240.0" layoutY="48.0" text="To" />
+        <Button fx:id="btnGo" layoutX="423.0" layoutY="50.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="103.0" text="Find" />
+        <ListView fx:id="lstView" layoutX="64.0" layoutY="147.0" prefHeight="324.0" prefWidth="462.0" />
+    </children>
+</AnchorPane>
