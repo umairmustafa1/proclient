@@ -13,11 +13,25 @@
         <URL value="@/styles/styles.css" />
     </stylesheets>
     <children>
-        <TextField fx:id="txtSource" layoutX="64.0" layoutY="77.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. Washington" />
-        <TextField fx:id="txtDestination" layoutX="240.0" layoutY="77.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. Chicago" />
+        <TextField fx:id="txtSource" layoutX="105.0" layoutY="44.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. DCA">
+         <contextMenu>
+            <ContextMenu fx:id="sourceContextMenu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu></TextField>
+        <TextField fx:id="txtDestination" layoutX="279.0" layoutY="44.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. ORD">
+         <contextMenu>
+            <ContextMenu fx:id="destinationContextMenu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu></TextField>
         <Label layoutX="64.0" layoutY="48.0" text="From" />
-        <Label layoutX="240.0" layoutY="48.0" text="To" />
-        <Button fx:id="btnGo" layoutX="423.0" layoutY="50.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="103.0" text="Find" />
+        <Label layoutX="239.0" layoutY="48.0" text="To" />
+        <Button fx:id="btnGo" layoutX="423.0" layoutY="41.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="103.0" text="Find" />
         <ListView fx:id="lstView" layoutX="64.0" layoutY="147.0" prefHeight="324.0" prefWidth="462.0" />
     </children>
 </AnchorPane>
