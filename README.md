@@ -1,6 +1,6 @@
 # README #
 
-This application finds the cheapest flights for each day between **Origin** and **Destination** within a given date range (**From** to **To**). End Date is not inclusive.
+This application finds the cheapest flights for each day between **Origin** and **Destination** within a given date range (**From** to **To**).
 
 # Features #
 
