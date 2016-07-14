@@ -2,7 +2,7 @@
 
 This application finds the cheapest flights between **Origin** and **Destination** within a given date range **From** to **To**. End Date is not inclusive.
 
-# Salient Features ##
+# Features ##
 
 * User should enter the date range during which he/she is looking to travel and application will find the cheapest flight options for each day.
 * Auto complete Functionality for Origin and Destination.
