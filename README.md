@@ -8,7 +8,7 @@ This application finds the cheapest flights for each day between **Origin** and 
 * Auto complete Functionality for Origin and Destination helps to choose Origin and Destination easily.
 * Results display the *cheapest* flight option for each day in the descending order for a given date range where X is the number of days. X is limited to 5 results.
 * Each entry in results list display source , destination, date, Flight Number, Airline, Air Fare and Agent who offers that price. Moreover, it also displays logo of the airline.
-* User can go to the reservation website of the agent upon clicking the result.
+* User can go to the reservation website of the agent upon clicking the item in result list.
 
 # Notes #
 Currently wait time for pooling the API is set to 2 seconds for a request. Sometimes it can take longer than 2 seconds, in those cases please press find again to get the output.
