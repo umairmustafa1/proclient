@@ -1,7 +1,7 @@
 package edu.uchicago.umairmustafa;
 
-import edu.uchicago.umairmustafa.amadeus.AirportFinder;
-import edu.uchicago.umairmustafa.amadeus.AirportResult;
+import edu.uchicago.umairmustafa.airports.Airport;
+import edu.uchicago.umairmustafa.airports.FileAirportFinder;
 import edu.uchicago.umairmustafa.skyscanner.Flight;
 import edu.uchicago.umairmustafa.skyscanner.FlightFinder;
 import javafx.collections.FXCollections;
@@ -112,16 +112,18 @@ public class FlightController implements Initializable
             contextMenu.hide();
         }else
         {
-            if(AirportFinder.findAirports(txtField.getText()).length > 0){
+            if(FileAirportFinder.findAirports(txtField.getText()).size() > 0){
                 List<CustomMenuItem> menuItems = new LinkedList<>();
-                for (AirportResult airportResult : AirportFinder.findAirports(txtField.getText())) {
-                    CustomMenuItem item = new CustomMenuItem(new Label(airportResult.getLabel()),true);
+
+                for (Airport airport : FileAirportFinder.findAirports(txtField.getText())) {
+                    CustomMenuItem item = new CustomMenuItem(new Label(airport.getName() + "[" + airport.getIata() + "]"),true);
                     item.setOnAction(actionEvent -> {
                         contextMenu.hide();
-                        txtField.setText(airportResult.getValue());
+                        txtField.setText(airport.getIata());
                     });
                     menuItems.add(item);
                 }
+
                 contextMenu.getItems().clear();
                 contextMenu.getItems().addAll(menuItems);
                 if(!contextMenu.isShowing()){
