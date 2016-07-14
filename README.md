@@ -1,29 +1,10 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This application finds the cheapest flights between **Origin** and **Destination** within a given date range **From** to **To**. End Date is not inclusive.
 
-### What is this repository for? ###
+# Salient Features ##
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* Auto complete Functionality for Source and Destination
+* Results display the top X cheapest flights on for a given date range where X is the number of days. X is limited to 10 if a longer date range is chosen.
+* Results list Display source and destinations, date, Flight Number and Airline, Air Fare and Agent who offers that price.
+* Upon Clicking the result, it takes you to the reservation website of that Agent.
