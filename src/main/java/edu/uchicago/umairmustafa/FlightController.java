@@ -21,6 +21,7 @@ import java.awt.*;
 import java.net.URI;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -35,6 +36,8 @@ public class FlightController implements Initializable
     @FXML private ListView<String> lstView;
     @FXML private ContextMenu sourceContextMenu;
     @FXML private ContextMenu destinationContextMenu;
+    @FXML private DatePicker fromDate;
+    @FXML private DatePicker toDate;
 
     private List<Flight> flightList;
 
@@ -47,16 +50,10 @@ public class FlightController implements Initializable
                 return new Task() {
                     @Override
                     protected ObservableList<String> call() throws Exception {
-                        String source = "DCA";//txtSource.getText();
-                        String destination = "ORD";//txtDestination.getText();
-
-                        Date date = new Date();
-                        Calendar c = Calendar.getInstance();
-                        c.setTime(date);
-                        c.add(Calendar.DATE, 1);
-                        date = c.getTime();
-                        String strDate = "2016-07-20";//new SimpleDateFormat("yyyy-MM-dd").format(date);
-                        String endDate = "2016-07-21";
+                        String source = txtSource.getText();
+                        String destination = txtDestination.getText();
+                        String strDate = fromDate.getValue().toString();
+                        String endDate = toDate.getValue().toString();
                         String numOfAdults = "1";
 
                         FlightFinder finder = new FlightFinder(source, destination, strDate, endDate, numOfAdults);

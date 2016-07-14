@@ -97,8 +97,8 @@ public class FlightFinder {
             System.out.println(responseCode);//TODO
             if(responseCode == 200){
 
-                JSONObject obj = new JSONObject(strResult);
-                System.out.println(obj.toString());//TODO
+                /*JSONObject obj = new JSONObject(strResult);
+                System.out.println(obj.toString());//TODO*/
 
                 JsonResponse jsonResponse = new Gson().fromJson(strResult, JsonResponse.class);
                 flight = new Flight();

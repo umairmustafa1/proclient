@@ -21,7 +21,7 @@
               </items>
             </ContextMenu>
          </contextMenu></TextField>
-        <TextField fx:id="txtDestination" layoutX="279.0" layoutY="44.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. ORD">
+        <TextField fx:id="txtDestination" layoutX="295.0" layoutY="44.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. ORD">
          <contextMenu>
             <ContextMenu fx:id="destinationContextMenu">
               <items>
@@ -29,9 +29,13 @@
               </items>
             </ContextMenu>
          </contextMenu></TextField>
-        <Label layoutX="64.0" layoutY="48.0" text="From" />
-        <Label layoutX="239.0" layoutY="48.0" text="To" />
-        <Button fx:id="btnGo" layoutX="423.0" layoutY="41.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="103.0" text="Find" />
-        <ListView fx:id="lstView" layoutX="64.0" layoutY="147.0" prefHeight="324.0" prefWidth="462.0" />
+        <Label layoutX="64.0" layoutY="48.0" text="Origin" />
+        <Label layoutX="224.0" layoutY="48.0" text="Destination" />
+        <Button fx:id="btnGo" layoutX="422.0" layoutY="44.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="111.0" text="Find" />
+        <ListView fx:id="lstView" layoutX="64.0" layoutY="147.0" prefHeight="324.0" prefWidth="469.0" />
+      <DatePicker fx:id="fromDate" layoutX="106.0" layoutY="93.0" prefHeight="25.0" prefWidth="111.0" />
+      <DatePicker fx:id="toDate" layoutX="295.0" layoutY="93.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="67.0" layoutY="97.0" text="From" />
+      <Label layoutX="255.0" layoutY="97.0" text="To" />
     </children>
 </AnchorPane>
