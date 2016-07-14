@@ -11,4 +11,4 @@ This application finds the cheapest flights for each day between **Origin** and 
 * User can go to the reservation website of the agent upon clicking the result.
 
 # Notes #
-Currently wait time for pooling API is set to 2 seconds for a request. Sometimes it can take longer than 2 seconds, in those cases please press find again to get the output.
+Currently wait time for pooling the API is set to 2 seconds for a request. Sometimes it can take longer than 2 seconds, in those cases please press find again to get the output.
