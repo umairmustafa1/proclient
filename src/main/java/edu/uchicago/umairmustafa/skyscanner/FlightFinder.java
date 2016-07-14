@@ -42,6 +42,9 @@ public class FlightFinder {
     private final String INCLUDE_CURRENCY_LOOKUP = "false";
     private final String INCLUDE_BOOKING_DETAILS_LINK = "false";
 
+    private final String SUCCESS_STATUS = "UpdatesComplete";
+    private final int TIME_BUFFER = 1000;
+
     private String origin;
     private String destination;
     private String startDate;
@@ -89,38 +92,41 @@ public class FlightFinder {
         if(responseCode == 201){
             getUrl = getUrl + "?apiKey=" + API_KEY;
             try {
-                Thread.sleep(1000);
+                Thread.sleep(TIME_BUFFER);
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
             responseCode = sendGet(getUrl);
+
             System.out.println(responseCode);//TODO
             if(responseCode == 200){
-
-                /*JSONObject obj = new JSONObject(strResult);
-                System.out.println(obj.toString());//TODO*/
+                JSONObject obj = new JSONObject(strResult);
+                System.out.println(obj.toString());//TODO
 
                 JsonResponse jsonResponse = new Gson().fromJson(strResult, JsonResponse.class);
-                flight = new Flight();
 
-                flight.setSource(origin);
-                flight.setDestination(destination);
-                flight.setFlightNumber(jsonResponse.getLegs().get(0).getFlightNumbers().get(0).getFlightNumber().toString());
+                if (jsonResponse.getStatus().equals(SUCCESS_STATUS)) {
+                    flight = new Flight();
 
-                flight.setCarrierCode(jsonResponse.getCarriers().get(0).getDisplayCode());
-                flight.setCarrierName(jsonResponse.getCarriers().get(0).getName());
-                flight.setCarrierImageURL(jsonResponse.getCarriers().get(0).getImageUrl());
+                    flight.setSource(origin);
+                    flight.setDestination(destination);
+                    flight.setFlightNumber(jsonResponse.getLegs().get(0).getFlightNumbers().get(0).getFlightNumber().toString());
 
-                flight.setFare(jsonResponse.getItineraries().get(0).getPricingOptions().get(0).getPrice());
-                flight.setDepartureTime(jsonResponse.getLegs().get(0).getDeparture());
-                flight.setArrivalTime(jsonResponse.getLegs().get(0).getArrival());
-                flight.setDeptDate(outboundDate);
+                    flight.setCarrierCode(jsonResponse.getCarriers().get(0).getDisplayCode());
+                    flight.setCarrierName(jsonResponse.getCarriers().get(0).getName());
+                    flight.setCarrierImageURL(jsonResponse.getCarriers().get(0).getImageUrl());
 
-                flight.setAgentName(jsonResponse.getAgents().get(0).getName());
-                flight.setAgentImageURL(jsonResponse.getAgents().get(0).getImageUrl());
-                flight.setBookingURL(jsonResponse.getItineraries().get(0).getPricingOptions().get(0).getDeeplinkUrl());
+                    flight.setFare(jsonResponse.getItineraries().get(0).getPricingOptions().get(0).getPrice());
+                    flight.setDepartureTime(jsonResponse.getLegs().get(0).getDeparture());
+                    flight.setArrivalTime(jsonResponse.getLegs().get(0).getArrival());
+                    flight.setDeptDate(outboundDate);
 
-                System.out.println(flight);//TODO
+                    flight.setAgentName(jsonResponse.getAgents().get(0).getName());
+                    flight.setAgentImageURL(jsonResponse.getAgents().get(0).getImageUrl());
+                    flight.setBookingURL(jsonResponse.getItineraries().get(0).getPricingOptions().get(0).getDeeplinkUrl());
+
+                    System.out.println(flight);//TODO
+                }
             };
         };
         return flight;

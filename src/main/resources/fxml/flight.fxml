@@ -13,7 +13,7 @@
         <URL value="@/styles/styles.css" />
     </stylesheets>
     <children>
-        <TextField fx:id="txtSource" layoutX="105.0" layoutY="44.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. DCA">
+        <TextField fx:id="txtSource" layoutX="64.0" layoutY="53.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. DCA">
          <contextMenu>
             <ContextMenu fx:id="sourceContextMenu">
               <items>
@@ -21,7 +21,7 @@
               </items>
             </ContextMenu>
          </contextMenu></TextField>
-        <TextField fx:id="txtDestination" layoutX="295.0" layoutY="44.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. ORD">
+        <TextField fx:id="txtDestination" layoutX="237.0" layoutY="53.0" prefHeight="25.0" prefWidth="111.0" promptText="e.g. ORD">
          <contextMenu>
             <ContextMenu fx:id="destinationContextMenu">
               <items>
@@ -29,13 +29,13 @@
               </items>
             </ContextMenu>
          </contextMenu></TextField>
-        <Label layoutX="64.0" layoutY="48.0" text="Origin" />
-        <Label layoutX="224.0" layoutY="48.0" text="Destination" />
-        <Button fx:id="btnGo" layoutX="422.0" layoutY="44.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="111.0" text="Find" />
-        <ListView fx:id="lstView" layoutX="64.0" layoutY="147.0" prefHeight="324.0" prefWidth="469.0" />
-      <DatePicker fx:id="fromDate" layoutX="106.0" layoutY="93.0" prefHeight="25.0" prefWidth="111.0" />
-      <DatePicker fx:id="toDate" layoutX="295.0" layoutY="93.0" prefHeight="25.0" prefWidth="111.0" />
-      <Label layoutX="67.0" layoutY="97.0" text="From" />
-      <Label layoutX="255.0" layoutY="97.0" text="To" />
+        <Label layoutX="64.0" layoutY="28.0" text="Origin" />
+        <Label layoutX="237.0" layoutY="28.0" text="Destination" />
+        <Button fx:id="btnGo" layoutX="422.0" layoutY="48.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="111.0" text="Find" />
+        <ListView fx:id="lstView" layoutX="64.0" layoutY="167.0" prefHeight="316.0" prefWidth="469.0" />
+      <DatePicker fx:id="fromDate" layoutX="62.0" layoutY="114.0" prefHeight="25.0" prefWidth="111.0" />
+      <DatePicker fx:id="toDate" layoutX="237.0" layoutY="114.0" prefHeight="25.0" prefWidth="111.0" />
+      <Label layoutX="62.0" layoutY="89.0" text="Start Date" />
+      <Label layoutX="237.0" layoutY="90.0" text="End Date" />
     </children>
 </AnchorPane>

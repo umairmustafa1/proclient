@@ -40,6 +40,7 @@ public class FlightController implements Initializable
     @FXML private DatePicker toDate;
 
     private List<Flight> flightList;
+    public final int NUMBER_OF_RESULTS = 10;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,7 +62,7 @@ public class FlightController implements Initializable
                         flightList = finder.getFlightList()
                                 .stream()
                                 .sorted((f1, f2) -> (int)(f1.getFare() - f2.getFare()))
-                                .limit(10)
+                                .limit(NUMBER_OF_RESULTS)
                                 .collect(Collectors.toList());
 
                         final AtomicInteger count = new AtomicInteger();
@@ -71,6 +72,7 @@ public class FlightController implements Initializable
                                 .stream()
                                 .map(flight -> count.getAndIncrement() + ". " + flight.toString())
                                 .collect(Collectors.toList());
+
                         return FXCollections.observableArrayList(strFlightList);
                     }
                 };
