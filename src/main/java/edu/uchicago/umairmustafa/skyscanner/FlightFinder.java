@@ -43,7 +43,7 @@ public class FlightFinder {
     private final String INCLUDE_BOOKING_DETAILS_LINK = "false";
 
     private final String SUCCESS_STATUS = "UpdatesComplete";
-    private final int TIME_BUFFER = 1000;
+    private final int TIME_BUFFER = 2000;
 
     private String origin;
     private String destination;

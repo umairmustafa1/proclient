@@ -15,6 +15,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.*;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 
 import java.awt.*;
@@ -40,7 +42,7 @@ public class FlightController implements Initializable
     @FXML private DatePicker toDate;
 
     private List<Flight> flightList;
-    public final int NUMBER_OF_RESULTS = 10;
+    public final int NUMBER_OF_RESULTS = 5;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -54,7 +56,7 @@ public class FlightController implements Initializable
                         String source = txtSource.getText();
                         String destination = txtDestination.getText();
                         String strDate = fromDate.getValue().toString();
-                        String endDate = toDate.getValue().toString();
+                        String endDate = toDate.getValue().plusDays(1).toString();
                         String numOfAdults = "1";
 
                         FlightFinder finder = new FlightFinder(source, destination, strDate, endDate, numOfAdults);
@@ -81,6 +83,24 @@ public class FlightController implements Initializable
 
         btnGo.disableProperty().bind(flightFinder.runningProperty());
         lstView.itemsProperty().bind(flightFinder.valueProperty());
+
+        lstView.setCellFactory(listView -> new ListCell<String>() {
+            private ImageView imageView = new ImageView();
+            @Override
+            public void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    int index = Integer.parseInt(item.substring(0, item.indexOf('.'))) - 1;
+                    Image image = new Image(flightList.get(index).getCarrierImageURL());
+                    imageView.setImage(image);
+                    setText(item);
+                    setGraphic(imageView);
+                }
+            }
+        });
 
         txtSource.textProperty().addListener((observableValue, oldValue, newValue) -> {populateMenuItems(txtSource, sourceContextMenu);});
         txtDestination.textProperty().addListener((observableValue, oldValue, newValue) -> {populateMenuItems(txtDestination, destinationContextMenu);});
